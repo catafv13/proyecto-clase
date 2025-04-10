@@ -1,3 +1,4 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './producto.component.css'
 })
 export class ProductoComponent {
-
+usuario={
+nombre: "taylor swift",
+activo: true,
+}
 }
