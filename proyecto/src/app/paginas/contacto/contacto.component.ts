@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
-
 @Component({
-  selector: 'app-formulario',
+  selector: 'app-contacto',
   imports: [FormsModule],
-  templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.css'
+  templateUrl: './contacto.component.html',
+  styleUrl: './contacto.component.css'
 })
-export class FormularioComponent {
+export class ContactoComponent {
 usuario={
   nombre:""
 }

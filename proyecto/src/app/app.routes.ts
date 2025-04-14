@@ -1,12 +1,20 @@
 import { RedirectCommand, Routes } from '@angular/router';
 import path from 'node:path';
-import { InicioComponent } from './inicio/inicio/inicio.component';
-import { FormularioComponent } from './contacto/formulario/formulario.component';
-import { ProductoComponent } from './producto/producto/producto.component';
+import { InicioComponent } from "./paginas/inicio/inicio.component";
+import { CarritoComponent } from "./paginas/carrito/carrito.component";
+import { QuienesomosComponent } from "./paginas/quienesomos/quienesomos.component";
+import { OfertasComponent } from "./paginas/ofertas/ofertas.component";
+import { ProductoComponent } from "./paginas/producto/producto.component";
+import { ContactoComponent } from './paginas/contacto/contacto.component';
 
 export const routes: Routes = [
-    {path:"", redirectTo:"/producto", pathMatch:"full"},
-    {path:"Inicio", component:InicioComponent},
-    {path: "Contacto", component:FormularioComponent},
-    {path: "producto", component:ProductoComponent}
+    {path:"", redirectTo:"/inicio", pathMatch:"full"},
+    {path:'contacto',component:ContactoComponent},
+    {path:"producto", component:ProductoComponent},
+    {path:'inicio',component:InicioComponent},
+    {path:'carrito',component:CarritoComponent},
+    {path:'quienesomos',component:QuienesomosComponent},
+    {path:'ofertas',component:OfertasComponent}
 ];
+
+
