@@ -1,1 +1,43 @@
-<p>carrito works!</p>
+<h1>Carrito de compras</h1>
+<div *ngIf="ProductosenCarrito.length ===0 ">
+    <p>No hay productos en el carrito</p>
+</div>
+
+<table class="tabla">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item for ProductosEnCarrito; let i= index">
+            <td><img [src]="item.producto.Imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;">
+            </td>
+        </tr>
+        <td>{{item.producto.imagen}}</td>
+        <td>{{item.producto.descripcion}}</td>
+        <td>{{item.producto.precio}}</td>
+        <td>
+            <button (click)="quitarCantidad(i)">-</button>
+            {{item.cantidad}}
+            <button (click)="agregarCantidad(i)">+</button>
+            {{item.quitarCantidad}}
+        </td>
+        <td>
+            <button (click)="eliminarProducto(item.producto.id)"></button>
+        </td>
+    </tbody>
+</table>
+<button (click)="realizarCompra()" class="btn btn-success">Realizar Compra</button>
+
+
+
+
+
+
+
