@@ -7,6 +7,9 @@ import { RouterTestingHarness } from '@angular/router/testing';
   providedIn: 'root'
 })
 export class CarritoService {
+  subscribe(arg0: (productos: { Producto: any; cantidad: number; }[]) => void) {
+    throw new Error('Method not implemented.');
+  }
   private carritoSubject = new BehaviorSubject <{producto: Producto; cantidad: number }[]>([]);
   carrito$ = this.carritoSubject.asObservable()
 
