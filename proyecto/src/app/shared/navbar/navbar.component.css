@@ -1,0 +1,12 @@
+.form {
+  color: #f48fb1;            /* Color del texto rosado */
+  border: 1px solid #f48fb1; /* Borde rosado */
+  background-color: transparent;
+  transition: 0.3s ease;     /* Suaviza el cambio */
+}
+
+.form:hover {
+  background-color: #f48fb1; /* Fondo rosado al pasar el mouse */
+  color: white;              /* Texto blanco para que contraste */
+  align-items: center;
+}

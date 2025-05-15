@@ -1,5 +1,22 @@
+<!--
+
 <form>
     <label for="nombre">Nombre:</label>
     <input id="nombre" [( ngModel )]="usuario.nombre" name="nombre" required>
     <button [disabled]="!usuario.nombre">Enviar</button>
+</form> -->
+
+<h1>contáctanos</h1>
+<p>No dudes en contactarnos en cualquier momento. Estamos aquí para ayudarte con tus pedidos, 
+preguntas sobre productos y cualquier comentario que tengas.</p>
+<p>Nuestro equipo de atención al cliente puede ayudarle por correo electrónico de lunes a viernes, de 9:00 a 17:00. 
+Nos pondremos en contacto con usted en un plazo de 2 días laborables.</p>
+<form>
+  <div class="mb-3">
+    <input type="email" class="form-control w-50" id="exampleInputEmail1" placeholder="Correo electrónico" aria-describedby="emailHelp">
+  </div>
+    <div class="mb-3">
+    <input type="text" class="form-control w-50" placeholder="Nombre y apellido" id="nombreyapellido1">
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Enviar</button>
 </form>

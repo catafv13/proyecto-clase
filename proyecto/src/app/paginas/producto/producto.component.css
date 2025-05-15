@@ -1,63 +1,74 @@
 /*estilo general*/
-body{
+body {
     background-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /*en el contenedor de las tarjetas*/
-.card-container{
+.card-container {
     display: flex;
-    justify-content: center;/*centrar las tarjetas*/
-    gap: 20px;/*enfoca*/
-    flex-wrap: wrap;/*permite que se acomoden en la pantalla*/
+    justify-content: center;
+    /*centrar las tarjetas*/
+    gap: 20px;
+    /*enfoca*/
+    flex-wrap: wrap;
+    /*permite que se acomoden en la pantalla*/
     padding: 20px;
 }
 
 /*estilos para las tarjetas*/
-.card{
-    width: 18rem;
+.card {
+    width: 250px; /* Ancho fijo para que no se estiren */
+    height: 370px; /* Altura más cercana al cuadrado */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: center;
     background-color: rgb(241, 210, 210);
-    color: rgb(255, 255, 255);
+    font-family: 'Montserrat', sans-serif;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out; 
-    box-shadow: 0 4px 8px rgb(60, 60, 60); 
-    height: 22rem; /*altura fija para q sea mas cuadrada*/
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgb(60, 60, 60);
 }
 
 /*efecto hover de la tarjeta*/
-.card:hover{
+.card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgb(60, 60, 60);
 
 }
 
 /*estilo imagen dentro de las tarjetas*/
-.card img{
+.card img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
+    object-fit: contain; /* muestra la imagen completa sin recortarla */
+    background-color: white; /* opcional, para que el fondo se vea prolijo */
+    padding: 10px; /* opcional, mejora la separación */
 }
 
 /*estilo del boton*/
-.card .btn{
-    background-color: rgb(238, 202, 213);
+.card .btn {
+    background-color: rgb(255, 237, 243);
     color: black;
     border: none;
     transition: background 0.3s ease-in-out;
     align-items: center;
     width: 70%;
-    margin: 0 auto; /* Centra el botón horizontalmente */
-    display: block; /* Hace que el margin funcione correctamente */
+    margin: 0 auto;
+    /* Centra el botón horizontalmente */
+    display: block;
+    /* Hace que el margin funcione correctamente */
 }
 
-.card .btn:hover{
-    background-color:rgb(254, 255, 174);
+.card .btn:hover {
+    background-color: rgb(254, 255, 174);
 }
 
-.titulo{
-    font-family:'Times New Roman', Times, serif;
+.titulo {
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
 }
-

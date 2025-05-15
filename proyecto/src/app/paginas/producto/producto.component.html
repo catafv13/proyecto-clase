@@ -26,7 +26,7 @@
             <div *ngIf="producto.disponibilidad" class="card">
                 <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-image">
                 <p>{{producto.nombre}}</p>
-                <!--<p>{{producto.descripcion}}</p>-->
+                <p>{{producto.descripcion}}</p>
                 <p>Precio: ${{producto.precio}}</p>
                 <button type="button" class="btn btn-outline-primary" (click)="agregar(producto)">agregar al carrito</button>
             </div> 
