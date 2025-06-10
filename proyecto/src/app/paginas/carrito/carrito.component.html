@@ -18,7 +18,7 @@
             <td><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}" style="width: 50px; height: 50px;"></td>
         
         <td>{{ item.producto.descripcion }}</td>
-        <td>{{ item.producto.precio }} USD </td>
+        <td>{{ item.producto.precio }} </td>
         <td>
             <button (click)="quitarCantidad(i)" class="button">-</button>
             {{item.cantidad}}
@@ -30,9 +30,13 @@
     </tr>
     </tbody>
 </table>
-<button (click)="realizarCompra()" class="btn btn-primary">Realizar Compra</button>
-
-
+<!--<button (click)="realizarCompra()" class="btn btn-primary">Realizar Compra</button>-->
+<div class="text-end mt-4" *ngIf="productosEnCarrito.length > 0">
+    <h4 class="fw-bold"> Total: {{calcularTotal()}}></h4>
+    <button class="btn btn-primary mt-2" (click)="irAFormularioCompra()">
+        <i class="bi bi-cart-check"></i>Realizar Compra
+    </button>
+</div>
 
 
 

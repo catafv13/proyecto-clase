@@ -8,5 +8,4 @@
 .form:hover {
   background-color: #f48fb1; /* Fondo rosado al pasar el mouse */
   color: white;              /* Texto blanco para que contraste */
-  align-items: center;
 }

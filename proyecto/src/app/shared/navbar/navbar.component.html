@@ -19,6 +19,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#" routerLink="/producto">Productos</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" routerLink="/favoritos">Favoritos</a>
+        </li>
       </ul>
       <div class="navbar-nav me-4 mb-2 mb-lg-0">
         <li class="nav-item">
@@ -39,6 +42,13 @@
             ({{cantidadProductos}})
           </span>
         </a>
+
+        <li>
+         <a class="nav-link" [routerLink]="['/favoritos']">
+          <i class="bi bi-cart"></i>
+        </a>
+        </li>
+
       </div>
     </div>
   </div>

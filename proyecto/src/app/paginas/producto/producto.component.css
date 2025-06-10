@@ -20,9 +20,8 @@ body {
 /*estilos para las tarjetas*/
 .card {
     width: 250px; /* Ancho fijo para que no se estiren */
-    height: 370px; /* Altura más cercana al cuadrado */
+    height: auto; /* Altura más cercana al cuadrado */
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     padding: 10px;
     text-align: center;
@@ -32,6 +31,8 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgb(60, 60, 60);
+    /*    flex-direction: column;
+    */
 }
 
 /*efecto hover de la tarjeta*/
@@ -44,11 +45,13 @@ body {
 /*estilo imagen dentro de las tarjetas*/
 .card img {
     width: 100%;
-    height: 180px;
-    object-fit: contain; /* muestra la imagen completa sin recortarla */
-    background-color: white; /* opcional, para que el fondo se vea prolijo */
-    padding: 10px; /* opcional, mejora la separación */
+    aspect-ratio: 1 / 1; /* asegura que la imagen sea cuadrada */
+    object-fit: cover; /* recorta para llenar el contenedor */
+    padding: 0;
+    border: none;
+    display: block;
 }
+
 
 /*estilo del boton*/
 .card .btn {

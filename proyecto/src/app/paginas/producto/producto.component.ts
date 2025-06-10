@@ -3,16 +3,17 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CarritoService } from '../../servicios/carrito.service';
 import { Producto } from '../../model/producto.model';
+import { FavoritosService } from '../../favoritos.service';
 
 @Component({
   selector: 'app-producto',
-  imports: [NgFor, NgIf, CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
 export class ProductoComponent {
 
-  Productos: Producto[] = [
+  productos:Producto[] = [
     /*buzos */
     {
       id: 1,
@@ -87,19 +88,19 @@ export class ProductoComponent {
     },
 
     /*carteras */
-     {
+    {
       id: 9,
-      nombre: "celine bag",
+      nombre: "ralph lauren bag",
       descripcion: "color: beige",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/fc/44/b9/fc44b93f6bc3a0535fdaf8ee7cd75152.jpg",
+      imagen: "https://i.pinimg.com/736x/46/39/1c/46391c3a37cf00a8c6f890511b08febc.jpg",
       disponibilidad: true
     },
 
     {
       id: 10,
       nombre: "coach bag",
-      descripcion: "color: beige",
+      descripcion: "color: marrón",
       precio: 70000,
       imagen: "https://i.pinimg.com/736x/a4/c3/06/a4c3060361ba867e35cb49e3d82ff70b.jpg",
       disponibilidad: true
@@ -128,77 +129,167 @@ export class ProductoComponent {
       nombre: "dior bag",
       descripcion: "color: beige",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/68/1a/a7/681aa7f21b21605596a88ba849a0168d.jpg",
+      imagen: "https://i.pinimg.com/736x/2d/39/df/2d39df31a00fad4523d2a766c9e9b1ee.jpg",
       disponibilidad: true
     },
 
     {
       id: 14,
-      nombre: "miu miu bag",
-      descripcion: "color: beige",
+      nombre: "ysl bag",
+      descripcion: "color: marrón claro",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/03/04/58/03045868a7e73a05370cb2d4a34af7f1.jpg",
+      imagen: "https://i.pinimg.com/736x/28/d8/0c/28d80c0c66f1e2bbe9b9fcfd84b17634.jpg",
       disponibilidad: true
     },
 
     {
       id: 15,
-      nombre: "miu miu bag",
-      descripcion: "color: beige",
+      nombre: "coach bag",
+      descripcion: "color: marrón",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/7c/12/3f/7c123f4f6384b6d9280df917ac68472e.jpg",
+      imagen: "https://i.pinimg.com/736x/e3/1b/e8/e31be85009aa52dfa7fb5f52d0a999f4.jpg",
       disponibilidad: true
     },
 
     {
       id: 16,
-      nombre: "",
-      descripcion: "color: beige",
+      nombre: "ferragamo bag",
+      descripcion: "color: marrón",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/5c/c8/db/5cc8db5ced5dc9b1987ef4c7ada7c3ca.jpg",
+      imagen: "https://i.pinimg.com/736x/74/09/d0/7409d0eefbaba35f05608e9851ddd559.jpg",
       disponibilidad: true
     },
 
     {
       id: 17,
-      nombre: "",
-      descripcion: "color: beige",
+      nombre: "chloe 99 bag",
+      descripcion: "color: marrón",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/5c/12/9f/5c129fee7a5ff50e8208f9ed44442d28.jpg",
+      imagen: "https://i.pinimg.com/736x/42/4d/b3/424db341d236832effea3cb95de67feb.jpg",
       disponibilidad: true
     },
 
     {
       id: 18,
-      nombre: "",
-      descripcion: "color: beige",
+      nombre: "coach bag",
+      descripcion: "color: marrón",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/90/ac/e9/90ace91e9138ef31b99c66cb148c90ef.jpg",
+      imagen: "https://i.pinimg.com/736x/fb/f8/9a/fbf89a52abf05f459a039584d27a36a8.jpg",
       disponibilidad: true
     },
 
     {
       id: 19,
-      nombre: "",
-      descripcion: "color: beige",
+      nombre: "fiorentina bag",
+      descripcion: "color: negro",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/46/39/1c/46391c3a37cf00a8c6f890511b08febc.jpg",
+      imagen: "https://i.pinimg.com/736x/57/ea/ed/57eaedd4895504f6360a748c56495c4d.jpg",
       disponibilidad: true
     },
 
     {
       id: 20,
-      nombre: "",
-      descripcion: "color: beige",
+      nombre: "elise bag",
+      descripcion: "color: marrón",
       precio: 70000,
-      imagen: "https://i.pinimg.com/736x/12/42/4f/12424f12c064fd36c3692a745fb86394.jpg",
+      imagen: "https://i.pinimg.com/736x/98/fc/a7/98fca7c1b43d9b7ce6eecb129e7dc5ee.jpg",
       disponibilidad: true
     },
+
+    /*zapatillas */
+    {
+      id: 21,
+      nombre: "adidas spezial",
+      descripcion: "color: azul y rosa",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/ee/45/c2/ee45c24fba344daaeb2973155ac37f9b.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "campus 00s",
+      descripcion: "color: beige y azul",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/df/c3/a1/dfc3a14e3e6f47eafd6b24cb91a92ce8.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas forum low",
+      descripcion: "color: beige y rojo",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/7f/9e/50/7f9e50484753cda6837c1003db70dd31.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas campus",
+      descripcion: "color: negro",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/7e/d7/9f/7ed79fac4be723325f3077dcd7ca86e6.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas gazelle",
+      descripcion: "color: rosa",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/13/e7/5a/13e75add66ffa29bc9b57250c693e92e.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas gazelle",
+      descripcion: "color: celeste y blanco",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/12/95/60/129560af06407e5b0cc1493306c72a26.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas campus",
+      descripcion: "color: gris",
+      precio: 70000,
+      imagen: "https://i.pinimg.com/736x/12/1a/fc/121afc1a763c228d879feb325f9d3c8c.jpg",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas spezial",
+      descripcion: "color: azul y rosa",
+      precio: 70000,
+      imagen: "",
+      disponibilidad: true
+    },
+
+    {
+      id: 22,
+      nombre: "adidas spezial",
+      descripcion: "color: azul y rosa",
+      precio: 70000,
+      imagen: "",
+      disponibilidad: true
+    },
+
   ]
-  constructor(private carritoService: CarritoService) { }
+
+  constructor(private carritoService: CarritoService,
+    private favoritosService: FavoritosService
+  ) { }
   //metodo para agregar un producto 
-  agregar(producto: Producto) {
+  agregarAlCarrito(producto: Producto) {
     this.carritoService.agregarAlcarrito(producto)
-    alert("Producto agregado al carrito")
+  }
+
+  agregarAFavoritos(producto: Producto) {
+    this.favoritosService.agregarAFavoritos(producto)
+    alert("Producto agregado a favoritos")
   }
 }

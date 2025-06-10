@@ -21,14 +21,18 @@
 
 <h1 class="titulo">productos</h1>
 <div class="card-container">
-    <ng-container *ngIf="Productos && Productos.length">
-        <ng-container *ngFor="let producto of Productos">
+    <ng-container *ngIf="productos && productos.length">
+        <ng-container *ngFor="let producto of productos">
             <div *ngIf="producto.disponibilidad" class="card">
                 <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-image">
                 <p>{{producto.nombre}}</p>
                 <p>{{producto.descripcion}}</p>
                 <p>Precio: ${{producto.precio}}</p>
-                <button type="button" class="btn btn-outline-primary" (click)="agregar(producto)">agregar al carrito</button>
-            </div> 
-     <ng-container>
- </ng-container>
+                <button type="button" class="btn btn-outline-primary" (click)="agregarAlCarrito(producto)">agregar al
+                    carrito</button>
+                <button type="button" class="btn btn-outline-primary" (click)="agregarAFavoritos(producto)"><i
+                        class="fa-solid fa-heart"></i></button>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
