@@ -44,5 +44,6 @@ export class FavoritosComponent implements OnInit {
     this.carritoService.agregarAlcarrito(producto)
   }
 
+  
 }
-
+  

@@ -7,24 +7,36 @@ import { RouterTestingHarness } from '@angular/router/testing';
   providedIn: 'root'
 })
 export class CarritoService {
+  //array de objetos q comienza vacío y se actualiza a medida que se agreguen, eliminen o modifiquen productos
+  //es privado solo pq el servicio puede modificarlo directamente 
   private carritoSubject = new BehaviorSubject<{ producto: Producto; cantidad: number }[]>([]);
+
+  // Se expone el observable para que otros componentes puedan suscribirse y reaccionar a los cambios.
   carrito$ = this.carritoSubject.asObservable()
 
   agregarAlcarrito(producto: Producto) {
+    //Obtiene la lista actual de productos en el carrito con getValue()
     const productos = this.carritoSubject.getValue();
+
+    //Busca si ya existe el producto en el carrito (find comparando por id).
     const encontrado = productos.find(p => p.producto.id === producto.id)
+
     if (encontrado) {
       encontrado.cantidad++
     } else {
+      //Si no existe, crea una nueva entrada { producto, cantidad: 1 } y actualiza el BehaviorSubject con next().
       this.carritoSubject.next([...productos, { producto, cantidad: 1 }])
     }
   }
 
+//Filtra el carrito, dejando solo los productos cuyo id no coincide con el que queremos eliminar.
+//Actualiza el estado del carrito con next().
   eliminarDelCarrito(productoId: number) {
     const productos = this.carritoSubject.getValue().filter(p => p.producto.id !== productoId)
     this.carritoSubject.next(productos)
   }
 
+  //borra todo el contenido del carrito enviando un array vacío
   vaciarCarrito() {
     this.carritoSubject.next([])
   }
@@ -35,16 +47,16 @@ export class CarritoService {
     //recorremos el carrito y actualizamos la csntidad del producto con el id dado
     const productos = this.carritoSubject.getValue().map(item => {
       if (item.producto.id === productoId) {
-        //retornamos una copia del producto con la nueva cantidad
+        //Si lo encuentra, devuelve una copia del objeto con la cantidad actualizada
         return { ...item, cantidad: nuevaCantidad }
       }
       return item
     })
-    //emitimos el nuevo estado del carrito
+    //actualiza el behavior subject con la nueva lista 
     this.carritoSubject.next(productos)
   }
 
-  //metodo para obtener los productos del carrito como un  arreglo
+  //metodo que devuelve el carrito completo como un arreglo 
   obtenerProductos(): { producto: Producto; cantidad: number }[] {
     return this.carritoSubject.getValue();
   }

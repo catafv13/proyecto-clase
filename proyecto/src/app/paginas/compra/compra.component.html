@@ -1,5 +1,9 @@
 <h2 class="text-center mb-4">Formulario de compra</h2>
+
+    <!--'[formGroup]': vincula el formulario con un grupo de controles en el TypeScript.
+         '(ngSubmit)': llama a la función 'finalizarCompra()' cuando se envía.-->
 <form [formGroup]="formularioCompra" (ngSubmit)="finalizarCompra()" class="mx-auto" style="max-width:600px;">
+
     <!--campos del formulario-->
     <div class="row g-3 mb-3">
         <div class="col-md-6">
@@ -8,8 +12,10 @@
                 <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
                 <input id="nombre" formControlName="nombre" class="form-control" placeholder="Tu nombre completo">
             </div>
+            
+             <!-- Muestra este texto de ayuda solo si el campo "nombre" fue tocado y es invalido-->
             <div *ngIf="formularioCompra.get('nombre')?.touched && formularioCompra.get('nombre')?.invalid"
-                class="form-text text danger">
+                class="form-text text-danger">
                 El nombre es obligatorio
             </div>
         </div>

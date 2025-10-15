@@ -1,37 +1,59 @@
-<!--
-<div *ngFor="let producto of productos; let i = index">
-    <p>{{i+1}}. Nombre: {{producto.nombre}}</p>
-    <p>Precio: {{producto.precio}}</p>
-</div>
--->
-<!--
-<div *ngIf=" usuario.isloggedIn">
-    <p>Bienvenido,{{usuario.nombre}}</p>
-</div>
-<div *ngIf=" !usuario.isloggedIn">
-    <p>Por favor, inicia sesión</p>
-</div>
--->
+<div class="filtros">
+    <div class="row mb-3">
+        <div class="col md-3">
+            <label>Categoria:</label>
+            <select class="form-select" [(ngModel)]="selectedCategory" name="categoria">
+                <option value="">Todas</option>
+                <option *ngFor="let categoria of categories" [value]="categoria">{{categoria}}</option>
+            </select>
+        </div>
 
-<!--
-<div [ngClass]="{ 'activo': usuario.activo, 'inactivo': !usuario.activo }">
-{{ usuario.nombre }}
-</div>
--->
+        <div class="col md-3">
+            <label>Marca:</label>
+            <select class="form-select" [(ngModel)]="selectedBrand" name="marca">
+                <option value="">Todas</option>
+                <option *ngFor="let marca of marca" [value]="marca">{{marca}}</option>
+            </select>
+        </div>
 
-<h1 class="titulo">productos</h1>
+        <div class="col-md-2">
+            <label>Precio min:</label>
+            <input type="number" class="form-control" [(ngModel)]="minPrecio" name="minprecio">
+        </div>
+
+        <div class="col-md-2">
+            <label>Precio max:</label>
+            <input type="number" class="form-control" [(ngModel)]="maxPrecio" name="maxprecio">
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button class="btn btn-secondary w-100" (click)="resetFilters()">
+                <div class="button-top">Limpiar</div>
+            </button>
+        </div>
+    </div>
+</div>
+
 <div class="card-container">
-    <ng-container *ngIf="productos && productos.length">
-        <ng-container *ngFor="let producto of productos">
+    <ng-container *ngIf="filteredProducts && filteredProducts.length">
+        <ng-container *ngFor="let producto of filteredProducts">
             <div *ngIf="producto.disponibilidad" class="card">
                 <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-image">
-                <p>{{producto.nombre}}</p>
-                <p>{{producto.descripcion}}</p>
-                <p>Precio: ${{producto.precio}}</p>
-                <button type="button" class="btn btn-outline-primary" (click)="agregarAlCarrito(producto)">agregar al
-                    carrito</button>
-                <button type="button" class="btn btn-outline-primary" (click)="agregarAFavoritos(producto)"><i
-                        class="fa-solid fa-heart"></i></button>
+
+                <h2>{{producto.nombre}}</h2>
+                <div class="mb-3">
+                    <p>Precio: ${{producto.precio}}</p>
+                    <p>Categoria: {{producto.categoria}}</p>
+                    <p>Marca: {{producto.marca}}</p>
+
+                </div>
+
+                <div class="botones">
+                    <button type="button" class="btn btn-outline-primary carrito"
+                    (click)="agregarAlCarrito(producto)">Comprar</button>
+                <button type="button" class="btn btn-outline-primary favoritos" (click)="agregarAFavoritos(producto)"><i
+                        class="fa-solid fa-star"></i></button>   
+                </div>
             </div>
         </ng-container>
     </ng-container>

@@ -1,0 +1,27 @@
+h3 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+}
+
+.form-control {
+    width: 60%;
+    margin-left: 10px;
+}
+
+.form-label{
+    margin-left: 10px;
+}
+
+.olvidaste{
+    text-align: right;
+    margin-right: 550px;
+}
+
+.btn-primary{
+margin-left: 10px;
+width: 60%;
+}
+
+.crearcuenta{
+    text-align: center;
+}
