@@ -1,4 +1,4 @@
-import { CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CarritoService } from '../../servicios/carrito.service';
@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-producto',
-  imports: [CommonModule, RouterModule,FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
@@ -22,7 +22,7 @@ export class ProductoComponent {
       descripcion: "",
       precio: 36000,
       imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/283-07fe3c5228291833a217530207390565-1024-1024.webp",
-      disponibilidad: true, 
+      disponibilidad: true,
       marca: "LITHIUM",
       categoria: "collar"
     },
@@ -33,7 +33,7 @@ export class ProductoComponent {
       descripcion: "",
       precio: 36000,
       imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/406-643c65fc52b35ddde017502913355945-1024-1024.webp",
-      disponibilidad: true, 
+      disponibilidad: true,
       marca: "LITHIUM",
       categoria: "aros"
     },
@@ -325,7 +325,7 @@ export class ProductoComponent {
       categoria: "aros"
     },
 
-     {
+    {
       id: 29,
       nombre: "COLLAR LUCKY ME",
       descripcion: "",
@@ -336,7 +336,7 @@ export class ProductoComponent {
       categoria: "collar"
     },
 
-     {
+    {
       id: 30,
       nombre: "ANILLO THE WINNER",
       descripcion: "",
@@ -347,7 +347,7 @@ export class ProductoComponent {
       categoria: "anillo"
     },
 
-     {
+    {
       id: 30,
       nombre: "ANILLO MAKE A WISH",
       descripcion: "",
@@ -358,7 +358,7 @@ export class ProductoComponent {
       categoria: "anillo"
     },
 
-     {
+    {
       id: 31,
       nombre: "BANGLE OPALITE ",
       descripcion: "",
@@ -369,7 +369,7 @@ export class ProductoComponent {
       categoria: "pulsera"
     },
 
-     {
+    {
       id: 32,
       nombre: " RELICARIO THE HEART",
       descripcion: "",
@@ -380,6 +380,247 @@ export class ProductoComponent {
       categoria: "collar"
     },
 
+    {
+      id: 33,
+      nombre: "PULSERA ELLE",
+      descripcion: "",
+      precio: 28000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/171-2-3c38d16d20f71c107617476035452077-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "pulsera"
+    },
+
+    {
+      id: 34,
+      nombre: "ARO PINKER",
+      descripcion: "",
+      precio: 19000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/337-3-b008f2d432a2d73bfe17475841718912-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "aros"
+    },
+
+    {
+      id: 35,
+      nombre: "ARO AURORA",
+      descripcion: "",
+      precio: 19000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/311-6ebceb62f1516fcd9617475832302008-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "aros"
+    },
+
+    {
+      id: 36,
+      nombre: "ANILLO NINA",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/486-ece0e5839bcd9051d217566583978883-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "anillo"
+    },
+
+    {
+      id: 37,
+      nombre: "ANILLO THE WINNER",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/287-473a9daf66a280f60217591868962018-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "anillo"
+    },
+
+    {
+      id: 38,
+      nombre: "COLLAR BADDIE",
+      descripcion: "",
+      precio: 38000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/collsr-fda66bfc9e7b45639317530201667391-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "collar"
+    },
+
+    {
+      id: 39,
+      nombre: "COLLAR OCEAN BREEZE",
+      descripcion: "",
+      precio: 28000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/116-3-83745634d000d8347317481904628989-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "collar"
+    },
+
+    {
+      id: 40,
+      nombre: "ANILLO CUORE",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/266-0cd58341452ffc265217476075678159-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "anillo"
+    },
+
+    {
+      id: 41,
+      nombre: "CHOKER TEARS",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/331-def176bb13c4e1122317481911907750-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "collar"
+    },
+
+    {
+      id: 42,
+      nombre: "ARO OLIVIA",
+      descripcion: "",
+      precio: 16000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/343-2-6594f0c21bc61e462817475759677532-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "aros"
+    },
+
+    {
+      id: 43,
+      nombre: "COLLAR FRANCHISE",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/189-fa8475f1a76df4ee6e17481872399304-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "collar"
+    },
+
+    {
+      id: 44,
+      nombre: "PULSERA UNFORGETTABLE",
+      descripcion: "",
+      precio: 20000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/279-5bc186838826a82af217589107799724-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "pulsera"
+    },
+
+    {
+      id: 45,
+      nombre: "ARO CANDY FROST",
+      descripcion: "",
+      precio: 19000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/417-8c72da0d670142e70e17498242998048-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "aros"
+    },
+
+    {
+      id: 46,
+      nombre: "ARO TINY BOW",
+      descripcion: "",
+      precio: 19000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/104-3-f7352d2b2bc5fe906617475812064695-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "aros"
+    },
+
+    {
+      id: 47,
+      nombre: "ANILLO ADDICTED",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/145-56738c16f5614bf41817579544042585-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "anillo"
+    },
+
+    {
+      id: 48,
+      nombre: "PULSERA BEL AIR",
+      descripcion: "",
+      precio: 20000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/121-69c2db054c974f297717476634511301-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "pulsera"
+    },
+
+    {
+      id: 49,
+      nombre: "ANILLO FORMENTERA",
+      descripcion: "",
+      precio: 24000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/38-4e57121d61a385be6217476593938744-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "anillo"
+    },
+
+    {
+      id: 50,
+      nombre: "DIJE DREAM DUST",
+      descripcion: "",
+      precio: 16000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/175-2-3aac2ad756993f1a3017476915207044-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "dije"
+    },
+
+    {
+      id: 50,
+      nombre: "DIJE BIRTHSTONE",
+      descripcion: "",
+      precio: 16000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/410-80e0da7fdf23e5ec6017551118465252-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "dije"
+    },
+
+    {
+      id: 51,
+      nombre: "DIJE UNIQUE",
+      descripcion: "",
+      precio: 16000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/1-ebd73be1993220ff4417476036824423-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "dije"
+    },
+
+        {
+      id: 52,
+      nombre: "PULSERA RUBY ",
+      descripcion: "",
+      precio: 16000,
+      imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/8-f7ba04c81280cae28a17476034609510-1024-1024.webp",
+      disponibilidad: true,
+      marca: "LITHIUM",
+      categoria: "pulsera"
+    },
+
+    {
+    id: 53,
+    nombre: "PULSERA SKINNY CHAIN",
+    descripcion: "",
+    precio: 20000,
+    imagen: "https://acdn-us.mitiendanube.com/stores/026/606/products/119-2771cee8c10aaf0ff917476634422519-1024-1024.webp",
+    disponibilidad: true, 
+    marca: "LITHIUM",
+    categoria: "pulsera"
+    },
 
   ]
 
@@ -417,21 +658,21 @@ export class ProductoComponent {
     event.preventDefault();
   }
 
-resetFilters():void {
-  this.searchTerm = '',
-    this.selectedCategory = '',
-    this.selectedBrand = '',
-    this.minPrecio = null,
-    this.maxPrecio = null
-}
-  
+  resetFilters(): void {
+    this.searchTerm = '',
+      this.selectedCategory = '',
+      this.selectedBrand = '',
+      this.minPrecio = null,
+      this.maxPrecio = null
+  }
+
   get filteredProducts(): Producto[] {
-  return this.productos.filter(p => (
-    this.searchTerm === '' || p.nombre.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())) &&
-    (this.selectedCategory === '' || p.categoria === this.selectedCategory) &&
-    (this.selectedBrand === '' || p.marca === this.selectedBrand) &&
-    (this.minPrecio === null || p.precio >= this.minPrecio) &&
-    (this.maxPrecio === null || p.precio <= this.maxPrecio))
-}
+    return this.productos.filter(p => (
+      this.searchTerm === '' || p.nombre.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase())) &&
+      (this.selectedCategory === '' || p.categoria === this.selectedCategory) &&
+      (this.selectedBrand === '' || p.marca === this.selectedBrand) &&
+      (this.minPrecio === null || p.precio >= this.minPrecio) &&
+      (this.maxPrecio === null || p.precio <= this.maxPrecio))
+  }
 }
 
