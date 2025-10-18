@@ -33,7 +33,7 @@
 
 <p>LUCKY COLLECTION</p>
 <div class="card-container">
-    <div *ngFor="let producto of producto">
+    <div *ngFor="let producto of producto" class="card">
     <img [src]="producto.imagen" alt="{{producto.nombre}}" class="product-image">
 
     <h2>{{producto.nombre}}</h2>
