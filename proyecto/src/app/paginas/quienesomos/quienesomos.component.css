@@ -7,3 +7,24 @@ h4{
     font-family:'Times New Roman', Times, serif;
     text-align: center;
 }
+
+hr {
+    width: 60%;
+    margin-left: 290px;
+}
+
+.stars {
+  display: flex;          
+  justify-content: center; 
+  gap: 5px;               
+  color: gold;           
+  font-size: 1rem;      
+  margin-bottom: 10px;    
+  margin-left: 10px;
+}
+
+.review {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 10px;
+}

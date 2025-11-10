@@ -25,4 +25,11 @@ p{
   font-size: 20px;       
 }
 
+.fa-brands {
+  margin: 0 10px; 
+  font-size: 1.5rem;
+  cursor: pointer; /* opcional, para que se note que son clickeables */
+  transition: transform 0.2s ease;
+}
+
 

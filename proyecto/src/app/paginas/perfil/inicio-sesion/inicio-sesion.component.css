@@ -1,27 +1,39 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      
+  justify-content: center;  
+  min-height: 100vh;      
+}
+
 h3 {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: left;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
 }
 
 .form-control {
-    width: 60%;
-    margin-left: 10px;
+  width: 300px; 
+  margin-bottom: 15px;
 }
 
-.form-label{
-    margin-left: 10px;
+.form-label {
+  align-self: flex-start; 
+  width: 300px;
 }
 
-.olvidaste{
-    text-align: right;
-    margin-right: 550px;
+.btn-primary {
+  width: 300px;
 }
 
-.btn-primary{
-margin-left: 10px;
-width: 60%;
+.olvidaste {
+  width: 300px;
+  text-align: right;
+  margin-top: 5px;
 }
 
-.crearcuenta{
-    text-align: center;
+.crearcuenta {
+  margin-top: 15px;
+  text-align: center;
 }
+
+
