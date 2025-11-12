@@ -28,8 +28,14 @@ p{
 .fa-brands {
   margin: 0 10px; 
   font-size: 1.5rem;
-  cursor: pointer; /* opcional, para que se note que son clickeables */
+  cursor: pointer; 
   transition: transform 0.2s ease;
 }
 
-
+.form-control {
+  margin: 10px auto;         
+  display: block;   
+  text-align: center;
+  border-color: bisque;
+  width: 300px;     
+}

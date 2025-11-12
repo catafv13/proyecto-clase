@@ -6,6 +6,8 @@ h1{
 h4{
     font-family:'Times New Roman', Times, serif;
     text-align: center;
+    width: 50%;
+    margin: 0 auto;
 }
 
 hr {
@@ -26,5 +28,21 @@ hr {
 .review {
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  margin-left: 10px;
+  margin: 20px auto;        
+  padding: 15px;             
+  border: 1px solid #ccc;   
+  border-radius: 10px;       
+  width: 60%;                
+  background-color: #fdfdfd; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.imagen{
+  height: 124px;
+  width: 124px;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
