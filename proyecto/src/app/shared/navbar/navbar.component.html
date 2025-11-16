@@ -1,67 +1,45 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary nav-header">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="https://svgsilh.com/svg/3246723.svg" class="imagen"></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/contacto">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/ofertas">Ofertas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/quienesomos">Quienes Somos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/producto">Productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/favoritos">Favoritos</a>
-        </li>
+
+    <div class="collapse navbar-collapse d-flex align-items-center" id="navbarSupportedContent">
+
+      <!-- IZQUIERDA -->
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" routerLink="/contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/ofertas">Ofertas</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/quienesomos">Quienes Somos</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/producto">Productos</a></li>
+        <li class="nav-item"><a class="nav-link active" routerLink="/favoritos">Favoritos</a></li>
       </ul>
 
-      <div class="navbar-nav me-4 mb-2 mb-lg-0">
-        <li>
-          <a class="nav-link" [routerLink]="['/inicio-sesion']">
+      <!-- CENTRO -->
+      <a routerLink="/inicio" class="link">
+        <h1 class="titulo">LITHIUM</h1>
+      </a>
+
+      <!-- DERECHA -->
+      <div class="ms-auto d-flex align-items-center gap-3">
+
+        <a class="nav-link" [routerLink]="['/inicio-sesion']">
           <i class="fa-solid fa-user"></i>
-          </a>
-        </li>
-      </div>
-
-      <div class="navbar-nav me-4 mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" routerLink="/carrito">
-            <i class="fa-solid fa-cart-shopping"></i></a>
-        </li>
-      </div>
-
-      <div class="navbar-nav me-4 mb-2 mb-lg-0">
-        <li>
-          <label for="toggle" id="label_toggle"><i class="fa-solid fa-moon"></i></label>
-          <input type="checkbox" id="toggle" (click)="cambiarFondo()">
-        </li>
-      </div>
-
-      <div class="nav-item">
-        <a class="nav-link" [routerLink]="['/carrito']">
-          <i class="bi bi-cart"></i>
-          <span *ngIf="cantidadProductos > 0">
-            ({{cantidadProductos}})
-          </span>
         </a>
 
-        <li>
-          <a class="nav-link" [routerLink]="['/favoritos']">
-            <i class="bi bi-cart"></i>
-          </a>
-        </li>
+        <a class="nav-link" routerLink="/carrito">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+
+        <label for="toggle" id="label_toggle">
+          <i class="fa-solid fa-moon"></i>
+        </label>
+        <input type="checkbox" id="toggle" (click)="cambiarFondo()">
 
       </div>
+
     </div>
   </div>
-
 </nav>

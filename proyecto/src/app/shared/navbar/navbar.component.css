@@ -1,17 +1,20 @@
-.form {
-  color: #f48fb1;            
-  border: 1px solid #f48fb1; 
-  background-color: transparent;
-  transition: 0.3s ease;     
+/* contenedor del header: hace de referencia para el absolute y le da espacio */
+.nav-header {
+  position: relative;
 }
 
-.form:hover {
-  background-color: #f48fb1; 
-  color: white;              
+/* Título centrado absoluto (centro real) */
+h1.titulo {
+  font-family: "Bodoni Moda", serif;
+  position: absolute;
+  top: 7px;                 /* ajustá para bajarlo/subirlo dentro del header */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 36px;          /* ajustá tamaño si lo querés más chico/grande */
 }
 
-.imagen{
-  height: 32px;
-  width: 32px;
-  align-items: center;
+/* Link que envuelve el título (evita subrayado y mantiene color) */
+.link {
+  text-decoration: none;
+  color: inherit;
 }
