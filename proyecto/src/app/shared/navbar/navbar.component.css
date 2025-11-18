@@ -1,20 +1,18 @@
-/* contenedor del header: hace de referencia para el absolute y le da espacio */
 .nav-header {
   position: relative;
 }
 
-/* Título centrado absoluto (centro real) */
 h1.titulo {
   font-family: "Bodoni Moda", serif;
   position: absolute;
-  top: 7px;                 /* ajustá para bajarlo/subirlo dentro del header */
+  top: 7px;              
   left: 50%;
   transform: translateX(-50%);
-  font-size: 36px;          /* ajustá tamaño si lo querés más chico/grande */
+  font-size: 36px;     
 }
 
-/* Link que envuelve el título (evita subrayado y mantiene color) */
 .link {
   text-decoration: none;
   color: inherit;
 }
+

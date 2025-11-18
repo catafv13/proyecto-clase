@@ -1,41 +1,39 @@
-h1 {
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
+h3 {
+  font-family: 'Times New Roman', Times, serif;
 }
 
-p{
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    margin-left: 10px;
+p {
+  font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
-.btn {
-  color: #000000;            
-  border: 1px solid #000000; 
+.custom-input {
+  width: 280px;        
+  margin: 10px auto;
+  text-align: center;
+}
+
+.custom-btn {
+  color: #000;
+  border: 1px solid #000;
   background-color: transparent;
-  transition: 0.3s ease;  
-  margin-left: 10px;
+  transition: 0.3s ease;
+  display: block;
+  margin: 15px auto;  
+  width: 120px;
 }
 
-.form-control {
-    width: 60%;
-    margin-left: 10px;
-}
-
-.mb-3 {
-  font-size: 20px;       
+.custom-btn:active {
+  background-color: #ffe5cc;  
+  transform: scale(0.96);     
 }
 
 .fa-brands {
-  margin: 0 10px; 
+  margin: 0 10px;
   font-size: 1.5rem;
   cursor: pointer; 
   transition: transform 0.2s ease;
 }
 
-.form-control {
-  margin: 10px auto;         
-  display: block;   
-  text-align: center;
-  border-color: bisque;
-  width: 300px;     
+.fa-brands:hover {
+  transform: scale(1.2);
 }
