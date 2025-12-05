@@ -1,21 +1,55 @@
 <div class="login-container">
   <h3>Inicio de sesión</h3>
-  <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
 
-  <div class="mb-3">
-      <label for="exampleFormControlPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleFormControlPassword1">
-      <p class="olvidaste"><a href="#" class="link">¿Olvidaste tu contraseña?</a></p>
-  </div>
+  <form (ngSubmit)="iniciarSesion()">
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        placeholder="name@example.com"
+        [(ngModel)]="usuario.email"
+        required
+      />
+    </div>
 
-  <div class="mb-3">
-      <button class="btn btn-primary" type="button">Iniciar Sesión</button>
-  </div>
+    <!-- Contraseña -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        [(ngModel)]="usuario.password"
+        required
+      />
+      <p class="olvidaste">
+        <a href="/recuperar" class="link">¿Olvidaste tu contraseña?</a>
+      </p>
+    </div>
 
-  <p class="crearcuenta">¿No tenés cuenta aún? 
-      <a href="registro.html" class="link">Crear cuenta</a>
+    <!-- Botón -->
+    <div class="mb-3">
+      <button class="btn btn-primary" type="submit">
+        Iniciar Sesión
+      </button>
+    </div>
+
+    <!-- Error -->
+    <p *ngIf="error" class="text-danger text-center mt-3">
+      {{ error }}
+    </p>
+  </form>
+
+  <!-- Registro -->
+  <p class="crearcuenta">
+    ¿No tenés cuenta aún?
+    <a href="/registro" class="link">Crear cuenta</a>
   </p>
 </div>
+
+

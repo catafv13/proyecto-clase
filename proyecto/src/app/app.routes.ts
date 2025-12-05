@@ -8,6 +8,8 @@ import { ProductoComponent } from "./paginas/producto/producto.component";
 import { ContactoComponent } from './paginas/contacto/contacto.component';
 import { FavoritosComponent } from './paginas/favoritos/favoritos.component';
 import { InicioSesionComponent } from './paginas/perfil/inicio-sesion/inicio-sesion.component';
+import { RegistroComponent } from './paginas/perfil/registro/registro.component';
+import { AdminComponent } from './paginas/admin/admin.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/inicio", pathMatch:"full"},
@@ -18,7 +20,9 @@ export const routes: Routes = [
     {path:'quienesomos',component:QuienesomosComponent},
     {path:'ofertas',component:OfertasComponent},
     {path: 'favoritos', component: FavoritosComponent},
-    {path: 'inicio-sesion', component: InicioSesionComponent }
+    {path: 'inicio-sesion', component: InicioSesionComponent },
+    {path: 'registro', component: RegistroComponent},
+    {path: 'admin', component: AdminComponent}
 ];
 
 

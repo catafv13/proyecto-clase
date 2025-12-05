@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Producto } from '../model/producto.model';
-import { RouterTestingHarness } from '@angular/router/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +66,14 @@ export class CarritoService {
     //usamos reduce para sumar los subtotales de cada producto
     return productos.reduce((total, item) => total + item.producto.precio * item.cantidad, 0)
   }
+
+  // ===============================================================
+// ACTUALIZAR CARRITO COMPLETO
+// ===============================================================
+actualizarCarrito(items: { producto: Producto; cantidad: number }[]) {
+  this.carritoSubject.next(items);
+}
+
 
   constructor() { }
 }

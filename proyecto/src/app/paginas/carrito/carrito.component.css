@@ -1,4 +1,4 @@
-h1{
+h3{
     font-family:'Times New Roman', Times, serif;
     text-align: center;
 }
@@ -17,3 +17,10 @@ h1{
 .button:hover {
   background-color: #e2e6ea;
 }
+
+table {
+  width: 80%;
+  margin: 0 auto; /* para centrar */
+  min-height: 180px; /* opcional */
+}
+
