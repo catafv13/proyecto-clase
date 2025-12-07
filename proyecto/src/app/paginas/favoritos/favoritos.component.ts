@@ -35,13 +35,13 @@ export class FavoritosComponent implements OnInit {
   //metodo para eliminar un producto de la lista de favoritos 
   eliminarFavorito(productoId: number){
     //llama al servicio para eliminar el producto por su ID
-    this.favoritosService.eliminarDeFavoritos(productoId);
+    this.favoritosService.eliminarFavorito(productoId);
   }
 
   //metodo para agregar un producto al carrito de compras
   agregarAlCarrito(producto: Producto){
     //llama al servicio de carrito y le pasa el producto seleccionado
-    this.carritoService.agregarAlcarrito(producto)
+    this.carritoService.agregarAlCarrito(producto)
   }
 
   

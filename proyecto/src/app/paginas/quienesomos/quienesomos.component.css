@@ -1,48 +1,89 @@
-h3{
-    font-family:'Times New Roman', Times, serif;
-    text-align: center;
+/* ===== QUIÉNES SOMOS — STYLE WITH YOUR BRAND COLORS ===== */
+
+/* Headings */
+h3 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  color: #73121B;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
-h4{
-    font-family:'Times New Roman', Times, serif;
-    text-align: center;
-    width: 50%;
-    margin: 0 auto;
+h4 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto 1.2rem auto;
+  color: #73121B;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
+/* Divider */
 hr {
-    width: 60%;
-    margin-left: 290px;
+  width: 60%;
+  margin: 2rem auto;
+  border-color: #73121B;
+  opacity: 0.3;
 }
 
-.stars {
-  display: flex;          
-  justify-content: center; 
-  gap: 5px;               
-  color: gold;           
-  font-size: 1rem;      
-  margin-bottom: 10px;    
-  margin-left: 10px;
+/* Reviews Section Title */
+h1 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  color: #73121B;
+  font-size: 2.2rem;
+  margin: 2.5rem 0 1.8rem;
+  letter-spacing: 1px;
 }
 
+/* Individual Review Card */
 .review {
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  margin: 20px auto;        
-  padding: 15px;             
-  border: 1px solid #ccc;   
-  border-radius: 10px;       
-  width: 60%;                
-  background-color: #fdfdfd; 
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #F1D9D9;
+  border-radius: 10px;
+  width: 60%;
+  background-color: #F4EBEC; /* Soft pink background */
+  box-shadow: 0 3px 8px rgba(115, 18, 27, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.imagen{
+.review:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(115, 18, 27, 0.12);
+}
+
+/* Star ratings (unchanged - gold stays!) */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  color: gold;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* Review text (product name + comment) */
+.review > p:nth-child(2), /* product name */
+.review > p:last-of-type { /* comment */
+  color: #73121B;
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Product images */
+.imagen {
   height: 124px;
   width: 124px;
-}
-
-h1{
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 10px 0;
+  border: 2px solid #F1CDD7; /* subtle accent border */
+  background-color: #F1D9D9; /* matches card aesthetic */
 }

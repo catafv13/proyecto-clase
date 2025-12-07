@@ -1,81 +1,60 @@
-<h2 class="text-center mb-4">Formulario de compra</h2>
+<div class="container mt-4">
 
-    <!--'[formGroup]': vincula el formulario con un grupo de controles en el TypeScript.
-         '(ngSubmit)': llama a la función 'finalizarCompra()' cuando se envía.-->
-<form [formGroup]="formularioCompra" (ngSubmit)="finalizarCompra()" class="mx-auto" style="max-width:600px;">
+  <h2 class="text-center mb-4">Finalizar Compra</h2>
 
-    <!--campos del formulario-->
-    <div class="row g-3 mb-3">
-        <div class="col-md-6">
-            <label for="nombre" class="form-label fw-semibold">Nombre <span class="text-danger">*</span></label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input id="nombre" formControlName="nombre" class="form-control" placeholder="Tu nombre completo">
-            </div>
-            
-             <!-- Muestra este texto de ayuda solo si el campo "nombre" fue tocado y es invalido-->
-            <div *ngIf="formularioCompra.get('nombre')?.touched && formularioCompra.get('nombre')?.invalid"
-                class="form-text text-danger">
-                El nombre es obligatorio
-            </div>
-        </div>
+  <div *ngIf="mensaje" class="alert alert-info text-center">
+    {{ mensaje }}
+  </div>
 
-        <div class="col-md-6">
-            <label for="nombre" class="form-label fw-semibold">Correo Eelctrónico<span
-                    class="text-danger">*</span></label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                <input id="correo" formControlName="correo" class="form-control" placeholder="Tu direccion de correo">
-            </div>
-            <div *ngIf="formularioCompra.get('correo')?.touched && formularioCompra.get('correo')?.invalid"
-                class="form-text text danger">
-                El correo es obligatorio
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <label for="nombre" class="form-label fw-semibold">Correo Eelctrónico<span
-                    class="text-danger">*</span></label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
-                <input id="correo" formControlName="correo" class="form-control" placeholder="Tu direccion de correo">
-            </div>
-            <div *ngIf="formularioCompra.get('correo')?.touched && formularioCompra.get('correo')?.invalid"
-                class="form-text text danger">
-                El correo es obligatorio
-            </div>
-        </div>
-
+  <div class="card shadow-sm mb-4" *ngIf="productos.length > 0">
+    <div class="card-header bg-primary text-white">
+      <strong>Productos en tu carrito</strong>
     </div>
-</form>
-
-<!--modal pdf-->
-<div *ngIf="mostrarModal" class="modal show d-block" tabindex="-1" role="dialog"
-    style="background: rgba(0, 0, 0, 0.5);">
-
-    <div class="modal-dialog modal-xl" role="document" style="max-width: 90vw; max-height: 90vh;">
-
-        <div class="modal-content" style="height: 90vh;">
-            <div class="modal-header">
-                <h5 class="modal-title">Factura PDF</h5>
-                <button type="button" class="btn-class" aria-label="cerrar" (click)="cerrarModal()"></button>
-            </div>
-
-            <div class="modal-body p-0" style="height: 80vh;">
-                <iframe *ngIf="pdfSrc" [src]="pdfSrc" id="pdfFrame"
-                    style="width: 100%; height: 100%; border: none;"></iframe>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" (click)="imprimirPDF()">
-                    imprimir
-                </button>
-                <button type="button" class="btn btn-secondary" (click)="cerrarModal()">
-                    Cerrar
-                </button>
-            </div>
-
+    <ul class="list-group list-group-flush">
+      <li *ngFor="let p of productos" class="list-group-item d-flex">
+        <img *ngIf="p.imagen"
+          [src]="'http://localhost/api_proyecto/public/uploads/' + p.imagen"
+          class="rounded me-3"
+          style="width: 70px; height: 70px; object-fit: cover;">
+        <div class="flex-grow-1">
+          <strong>{{ p.nombre }}</strong>
+          <p class="text-muted">{{ p.descripcion }}</p>
+          <small>
+            Cantidad: {{ p.cantidad }} <br>
+            Precio: ${{ p.precio_unitario }} <br>
+            Subtotal: <strong>${{ p.subtotal }}</strong>
+          </small>
         </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card shadow-sm mb-4" *ngIf="productos.length > 0">
+    <div class="card-body">
+      <h4>Resumen</h4>
+      <p>Subtotal: ${{ subtotal }}</p>
+      <p>Envío: ${{ envio }}</p>
+      <hr>
+      <h4>Total: <strong>${{ total }}</strong></h4>
     </div>
+  </div>
+
+  <div class="card shadow-sm" *ngIf="productos.length > 0">
+    <div class="card-header bg-success text-white">Datos de envío</div>
+    <div class="card-body">
+      <input class="form-control mb-3" placeholder="Dirección" [(ngModel)]="datos.direccion">
+      <input class="form-control mb-3" placeholder="Teléfono" [(ngModel)]="datos.telefono">
+
+      <button class="btn btn-success w-100"
+        (click)="finalizarCompra()"
+        [disabled]="cargando">
+        {{ cargando ? 'Procesando...' : 'Confirmar compra' }}
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="productos.length === 0" class="alert alert-warning text-center">
+    Tu carrito está vacío.
+  </div>
 
 </div>

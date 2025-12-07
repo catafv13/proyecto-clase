@@ -1,29 +1,32 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary nav-header">
   <div class="container-fluid">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Botón responsive -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse d-flex align-items-center" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+      <!-- LINKS IZQUIERDA -->
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link active" routerLink="/contacto">Contacto</a></li>
-        <li class="nav-item"><a class="nav-link active" routerLink="/ofertas">Ofertas</a></li>
         <li class="nav-item"><a class="nav-link active" routerLink="/quienesomos">Quienes Somos</a></li>
         <li class="nav-item"><a class="nav-link active" routerLink="/producto">Productos</a></li>
         <li class="nav-item"><a class="nav-link active" routerLink="/favoritos">Favoritos</a></li>
       </ul>
 
-      <a routerLink="/inicio" class="link">
+      <!-- TITULO CENTRADO -->
+      <a routerLink="/inicio">
         <h1 class="titulo">LITHIUM</h1>
       </a>
 
-      <div class="ms-auto d-flex align-items-center gap-3">
-        <li class="nav-item"><a class="nav-link active" routerLink="/admin">Admin</a></li>
+      <!-- CONTENEDOR DERECHA -->
+      <div class="d-flex align-items-center ms-auto gap-3">
 
-        <a class="nav-link" [routerLink]="['/inicio-sesion']">
+        <!-- ICONOS -->
+        <a class="nav-link" routerLink="/inicio-sesion">
           <i class="fa-solid fa-user"></i>
         </a>
 
@@ -31,10 +34,24 @@
           <i class="fa-solid fa-cart-shopping"></i>
         </a>
 
-        <label for="toggle" id="label_toggle">
-          <i class="fa-solid fa-moon"></i>
-        </label>
-        <input type="checkbox" id="toggle" (click)="cambiarFondo()">
+        <!-- ADMIN -->
+        <a *ngIf="usuario?.rol === 'admin'" 
+           routerLink="/admin" class="nav-link text-warning fw-bold">
+          Admin
+        </a>
+
+        <!-- LOGUEADO -->
+        <ng-container *ngIf="authService.isLoggedIn(); else sinSesion">
+          <span class="user-label">
+            {{ usuario?.nombre }} ({{ usuario?.rol }})
+          </span>
+
+          <button class="btn btn-sm btn-logout" (click)="logout()">
+            Cerrar sesión
+          </button>
+        </ng-container>
+
+        <ng-template #sinSesion></ng-template>
 
       </div>
 

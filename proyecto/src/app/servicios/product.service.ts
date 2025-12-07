@@ -14,6 +14,7 @@ export class ProductService {
   //   PUT    /products/:id
   //   DELETE /products/:id
   private apiUrl = 'http://localhost/api_proyecto/public/products';
+  
 
   constructor(private http: HttpClient) {}
 
@@ -52,15 +53,25 @@ export class ProductService {
   // se usa técnica _method=PUT que el backend interpreta.
   // ============================================================
   actualizarProducto(id: number, formData: FormData): Observable<any> {
-    return this.http.post(
-      `${this.apiUrl}/${id}?_method=PUT`,
-      formData,
-      {
-        headers: this.getAuthHeaders(false)
-      }
-    );
-  }
+    // 1. Append _method=PUT (required by your PHP router)
+    formData.append('_method', 'PUT');
 
+    // 2. Get token from localStorage (must match what login stored)
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      throw new Error('Token ausente. Por favor, inicie sesión.');
+    }
+
+    // 3. Create headers WITH Authorization
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+      //no agregamos 'Content-Type' — dejar que el navegador lo establezca para FormData
+    });
+
+    // 4. Send POST (your PHP expects POST + _method=PUT)
+    return this.http.post(`${this.apiUrl}/${id}`, formData, { headers });
+  }
   // ============================================================
   // ELIMINAR PRODUCTO (solo admin)
   // DELETE /products/:id
@@ -95,3 +106,4 @@ export class ProductService {
     return new HttpHeaders(headers);
   }
 }
+

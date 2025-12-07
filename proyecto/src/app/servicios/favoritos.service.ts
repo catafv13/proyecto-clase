@@ -1,47 +1,64 @@
-//*permite que esta clase sea un servicio que se puede inyectar en otros componentes o servicios de Angular. */
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-/*importa la interfaz de producto */
-import { Producto } from '../model/producto.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritosService {
-  // Se declara un Subject de tipo BehaviorSubject que almacena un array de productos.
-// Inicialmente está vacío ([]). Es privado para que no se acceda directamente desde otros componentes.
-private favoritosSubject = new BehaviorSubject<Producto[]>([]);
 
-// Se expone el observable para que otros componentes puedan suscribirse y reaccionar a los cambios.
-favoritos$ = this.favoritosSubject.asObservable();
+  private apiUrl = 'http://localhost/api_proyecto/public/favoritos';
 
-// Método para agregar un producto a la lista de favoritos
-agregarAFavoritos(producto: Producto) {
-  // Se obtiene la lista actual de favoritos
-  const favoritos = this.favoritosSubject.getValue();
+  private favoritosSubject = new BehaviorSubject<any[]>([]);
+  favoritos$ = this.favoritosSubject.asObservable();
 
-  // Se verifica si el producto ya existe en la lista (por ID)
-  const existe = favoritos.find(p => p.id === producto.id);
+  constructor(private http: HttpClient) {}
 
-  // Si el producto no está en la lista, se agrega y se actualiza el estado del BehaviorSubject
-  if (!existe) {
-    this.favoritosSubject.next([...favoritos, producto]);
+  private getAuthHeaders(): HttpHeaders {
+    const token = (typeof localStorage !== 'undefined')
+      ? localStorage.getItem('token') || ''
+      : '';
+
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
   }
+
+ obtenerFavoritos(): Observable<any> {
+  return this.http.get(this.apiUrl, {
+    headers: this.getAuthHeaders()
+  }).pipe(
+    tap((resp: any) => {
+      // Si resp YA es un array → lo uso.
+      // Si resp trae resp.favoritos → uso eso.
+      // Si ninguna aplica → dejo array vacío.
+      const favoritos = Array.isArray(resp) ? resp : resp.favoritos ?? [];
+      this.favoritosSubject.next(favoritos);
+    })
+  );
 }
 
-// Método para eliminar un producto de la lista de favoritos según su ID
-eliminarDeFavoritos(productoId: number) {
-  // Se filtran los productos dejando afuera el que tiene el ID que se quiere eliminar
-  const actualizados = this.favoritosSubject.getValue().filter(p => p.id !== productoId);
+  agregarFavorito(producto: any): Observable<any> {
+    const body = { id_producto: producto.id };
 
-  // Se actualiza el BehaviorSubject con la nueva lista de favoritos
-  this.favoritosSubject.next(actualizados);
-}
+    return this.http.post(
+      `${this.apiUrl}/agregar`,
+      body,
+      { headers: this.getAuthHeaders() }
+    ).pipe(
+      tap(() => this.obtenerFavoritos().subscribe())
+    );
+  }
 
-// Método para vaciar completamente la lista de favoritos
-vaciarFavoritos() {
-  // Se actualiza el BehaviorSubject con un array vacío
-  this.favoritosSubject.next([]);
-}
+  eliminarFavorito(idProducto: number): Observable<any> {
+    return this.http.delete(
+      `${this.apiUrl}/eliminar/${idProducto}`,
+      { headers: this.getAuthHeaders() }
+    ).pipe(
+      tap(() => this.obtenerFavoritos().subscribe())
+    );
+  }
+
 }

@@ -101,7 +101,7 @@ export class AdminComponent implements OnInit {
           this.reset();           // Resetea los estados del formulario.
           this.cargarProductos(); // Refresca la lista.
         },
-        error: (err) => console.error("Error actualizando producto", err)
+        error: err => console.error("Error actualizando producto", err)
       });
 
     } 

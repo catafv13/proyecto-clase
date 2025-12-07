@@ -1,44 +1,72 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { CarritoService } from '../../servicios/carrito.service';
-import { Producto } from '../../model/producto.model';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  imports: [RouterLink, CommonModule, RouterModule],
+  selector: 'app-nav',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavComponent implements OnInit {
+
+  // Número total de productos que se muestran en el icono del carrito.
+  // Se calcula dinámicamente sumando las cantidades de los ítems.
   cantidadProductos: number = 0;
 
-  constructor(private carritoService: CarritoService) { }
+
+  // Información del usuario actualmente autenticado.
+  usuario: any = null;
+
+  constructor(
+    // Servicio que maneja los datos del carrito y su estado reactivo.
+    private carritoService: CarritoService,
+
+    // Servicio de autenticación que permite saber si hay sesión activa,
+    // obtener datos del usuario y escuchar eventos de login.
+    public authService: AuthService
+  ) {}
+
   ngOnInit(): void {
-    //escucha los cambios en el carrito par actualizar la cantidad de productos
-    this.carritoService.carrito$.subscribe((productos: { producto: Producto, cantidad: number }[]) => {
-      this.cantidadProductos= productos.reduce((total, item) => total + item.cantidad, 0)
-    })
-  }
 
-  onCarritoClick(){
-    console.log("carrito clicked")
-  }
+    // Carga inicial del usuario desde localStorage (si está guardado allí).
+    this.usuario = this.authService.getUsuario();
 
-  cambiarFondo(){
-    let toggle: HTMLInputElement | null= document.getElementById("toggle") as HTMLInputElement
-    let label_toggle: HTMLInputElement | null = document.getElementById("label_toggle") as HTMLInputElement
-    if (toggle) {
-      let checked: boolean = toggle.checked;
-      document.body.classList.toggle("dark", checked)
-    
-      if (checked) {
-        label_toggle!.innerHTML = '<i class = "fa-solid fa-sun"></i>';
-      }else{
-        label_toggle!.innerHTML = '<i class = "fa-solid fa-moon"></i>'
+    // Si existe token válido, se carga el carrito desde el backend.
+    if (this.authService.isLoggedIn()) {
+      this.carritoService.cargarCarrito();
+    }
+
+    // Se suscribe al observable carrito$ para escuchar cambios del carrito.
+    // Cada vez que cambia, recalcula la cantidad total de productos.
+    this.carritoService.carrito$.subscribe({
+      next: productos => {
+        // Suma todas las cantidades de cada ítem,
+        // usando 1 como fallback por si algún item no trae cantidad.
+        this.cantidadProductos = productos.reduce(
+          (acc, item) => acc + Number(item.cantidad || 1),
+          0
+        );
       }
+    });
+
+    // Si el usuario se loguea después de cargar el componente,
+    // se vuelve a obtener el usuario y se recarga el carrito del backend.
+    if (this.authService.loginEvent) {
+      this.authService.loginEvent.subscribe(() => {
+        this.usuario = this.authService.getUsuario();
+        this.carritoService.cargarCarrito();
+      });
     }
   }
-  
-}
 
+  // Cierra sesión, limpia usuario y cantidad mostrada en el carrito.
+  logout() {
+    this.authService.logout();
+    this.usuario = null;
+    this.cantidadProductos = 0;
+  }
+}

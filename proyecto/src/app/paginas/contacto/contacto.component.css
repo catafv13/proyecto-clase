@@ -1,39 +1,77 @@
+/* Title */
 h3 {
   font-family: 'Times New Roman', Times, serif;
+  color: #73121B;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
+/* Body text */
 p {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: #73121B;
+  max-width: 600px;
+  margin: 0 auto 1rem auto;
+  line-height: 1.6;
 }
 
+/* Form inputs */
 .custom-input {
-  width: 280px;        
+  width: 280px;
   margin: 10px auto;
   text-align: center;
+  padding: 8px 12px;
+  border: 1px solid #F1D9D9;
+  border-radius: 6px;
+  background-color: #F4EBEC;
+  color: #73121B;
+  font-family: 'Helvetica', Arial, sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
+.custom-input:focus {
+  outline: none;
+  border-color: #73121B;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(115, 18, 27, 0.15);
+}
+
+/* Submit button */
 .custom-btn {
-  color: #000;
-  border: 1px solid #000;
-  background-color: transparent;
-  transition: 0.3s ease;
+  color: #73121B;
+  border: 1px solid #73121B;
+  background-color: #F4EBEC;
+  transition: all 0.3s ease;
   display: block;
-  margin: 15px auto;  
+  margin: 15px auto;
   width: 120px;
+  padding: 6px 12px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.custom-btn:hover {
+  background-color: #F1CDD7;
+  color: #73121B;
+  border-color: #73121B;
 }
 
 .custom-btn:active {
-  background-color: #ffe5cc;  
-  transform: scale(0.96);     
+  background-color: #F1CDD7;
+  transform: scale(0.96);
 }
 
+/* Social Icons */
 .fa-brands {
   margin: 0 10px;
   font-size: 1.5rem;
-  cursor: pointer; 
-  transition: transform 0.2s ease;
+  color: #73121B;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .fa-brands:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
+  color: #F1CDD7;
 }

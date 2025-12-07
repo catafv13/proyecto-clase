@@ -1,78 +1,155 @@
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    /*espacio entre las tarjetas*/
-    flex-wrap: wrap;
-    padding: 10px;
+.container.my-5 {
+  background-color: #F4EBEC;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
 }
 
+h2.text-center.mb-4 {
+  color: #73121B;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Spinner & Alert */
+.spinner-border {
+  color: #73121B;
+}
+
+.alert.alert-danger {
+  background-color: #F1CDD7;
+  border-color: #73121B;
+  color: #73121B;
+  font-weight: 500;
+}
+
+/* Card Grid */
+.row.g-4 {
+  justify-content: center;
+}
+
+.col-md-4 {
+  max-width: 300px;
+  flex: 0 0 300px;
+}
+
+/* Product Card */
 .card {
-    width: 250px;
-    height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 10px;
-    text-align: center;
-    background-color: rgb(245, 234, 237);
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgb(60, 60, 60);
+  background-color: #F4EBEC;
+  border: 1px solid #F1D9D9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 400px; /* More square-like */
+  overflow: hidden;
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgb(60, 60, 60);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.card img {
-    display: block;
-    margin: auto;
-    width: 80%;
-    height: auto;
+/* Image */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #F1D9D9;
+  padding: 0.5rem;
 }
 
-
-.card h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 8px;
+/* Card Body */
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
-
-.carrito {
-    color: rgb(0, 0, 0);
-    border-color: rgb(0,0,0);
-    width: 70%;
-    text-align: center;
-    gap: 10px;
+/* Title */
+.card-title {
+  color: #73121B;
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem 0;
+  text-align: center;
+  line-height: 1.3;
 }
 
-/* botón "favorito"*/
-.favoritos {
-    border-color: rgb(0,0,0);
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: rgba(0, 0, 0, 0.87);
-    padding: 10px;
+/* Description */
+.card-text {
+  color: #73121B;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+  text-align: center;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
+/* Price */
+.card-body p:last-of-type {
+  color: #73121B;
+  font-weight: 700;
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+}
+
+/* Button Container */
+.d-flex.justify-content-center.gap-2 {
+  margin-top: 0.75rem !important;
+}
+
+/* agregar al carrito botton */
+.btn-success.btn-sm {
+  background-color: #73121B;
+  border-color: #73121B;
+  color: white;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-success.btn-sm:hover {
+  background-color: #F1CDD7;
+  color: #73121B;
+  border-color: #73121B;
+}
+
+/* Add to Favorites Button (Outline Red with Star Icon) */
+.btn-outline-danger.btn-sm {
+  border-color: #73121B;
+  color: #73121B;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-danger.btn-sm:hover {
+  background-color: #F1CDD7;
+  color: #73121B;
+  border-color: #73121B;
+}
+
+/* Optional: If you want to style the star icon specifically */
+.btn-outline-danger.btn-sm i.fa-star {
+  margin-right: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Remove any old styles that might conflict */
+.card-container,
+.carrito,
+.favoritos,
 .botones {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-
-.btn-outline-primary:hover,
-.botones .favorito:hover {
-    background-color: rgb(255, 198, 217);
-    color: rgb(202,1,1);
-    border-color: rgb(202, 1, 1);
+  display: none !important;
 }
