@@ -1,0 +1,163 @@
+/* ===== FINALIZAR COMPRA — BRAND STYLING ===== */
+
+.container.mt-4 {
+  background-color: #F4EBEC;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+h2.text-center.mb-4 {
+  color: #73121B;
+  font-family: "times new roman", Times, serif;
+ margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.alert.alert-info {
+  background-color: #F1CDD7;
+  border-color: #73121B;
+  color: #73121B;
+  font-weight: 500;
+}
+
+/* Product Card */
+.card.shadow-sm.mb-4 {
+  background-color: #F4EBEC;
+  border: 1px solid #F1D9D9;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card-header.bg-primary.text-white {
+  background-color: #73121B !important;
+  border-bottom: 1px solid #F1D9D9;
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+}
+
+.list-group-item.d-flex {
+  border: none;
+  padding: 1rem;
+  border-bottom: 1px solid #F1D9D9;
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+img.rounded.me-3 {
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #F1D9D9;
+}
+
+.flex-grow-1 strong {
+  color: #73121B;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.flex-grow-1 p.text-muted {
+  color: #73121B !important;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.flex-grow-1 small {
+  color: #73121B;
+  font-size: 0.85rem;
+}
+
+.flex-grow-1 small strong {
+  color: #73121B;
+  font-weight: 700;
+}
+
+/* Resumen Card */
+.card-body h4 {
+  color: #73121B;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.card-body p {
+  color: #73121B;
+  margin: 0.5rem 0;
+}
+
+.card-body hr {
+  border-color: #F1D9D9;
+  opacity: 0.5;
+}
+
+.card-body h4:last-of-type {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+/* Datos de Envío Card */
+.card-header.bg-success.text-white {
+  background-color: #73121B !important;
+  border-bottom: 1px solid #F1D9D9;
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-control {
+  border: 1px solid #F1D9D9;
+  border-radius: 8px;
+  background-color: #F4EBEC;
+  color: #73121B;
+  padding: 0.5rem 0.75rem;
+  font-family: 'Helvetica', Arial, sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #73121B;
+  background-color: white;
+  box-shadow: 0 0 0 2px rgba(115, 18, 27, 0.15);
+}
+
+/* Confirmar Compra Button */
+.btn.btn-success.w-100 {
+  background-color: #73121B;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 300px;
+  margin: 1rem auto;
+  display: block;
+  font-size: 1rem;
+  text-align: center; 
+}
+
+.btn.btn-success.w-100:hover:not([disabled]) {
+  background-color: #F1CDD7;
+  color: #73121B;
+  transform: translateY(-2px);
+}
+
+.btn.btn-success.w-100:disabled {
+  background-color: #F1D9D9;
+  color: #73121B;
+  cursor: not-allowed;
+}
+
+/* Empty Cart Alert */
+.alert.alert-warning {
+  background-color: #F1CDD7;
+  border-color: #73121B;
+  color: #73121B;
+  font-weight: 500;
+}

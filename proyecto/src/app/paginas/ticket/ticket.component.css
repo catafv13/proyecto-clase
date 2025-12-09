@@ -1,0 +1,58 @@
+/* ===== TICKET DE LA COMPRA — BRAND STYLING ===== */
+
+.container.mt-4 {
+  background-color: #F4EBEC;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+h2.mb-3 {
+  color: #73121B;
+  font-family: "times new roman", Times, serif;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Download Button */
+.btn.btn-primary {
+  background-color: #73121B;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn-primary:hover {
+  background-color: #F1CDD7;
+  color: #73121B;
+  transform: translateY(-2px);
+}
+
+/* PDF Viewer (iframe) */
+iframe {
+  width: 100%;
+  height: 600px;
+  margin-top: 20px;
+  border: 1px solid #F1D9D9;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+iframe:hover {
+  border-color: #73121B;
+}
+
+/* No Ticket Message */
+.text-center h3 {
+  color: #73121B;
+  font-family: "Bodoni Moda", serif;
+  font-weight: 500;
+  margin-top: 2rem;
+}

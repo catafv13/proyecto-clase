@@ -9,6 +9,7 @@ import { InicioSesionComponent } from './paginas/perfil/inicio-sesion/inicio-ses
 import { RegistroComponent } from './paginas/perfil/registro/registro.component';
 import { AdminComponent } from './paginas/admin/admin.component';
 import { AdminGuard } from './guards/admin.guards';
+import { CompraComponent } from './paginas/compra/compra.component';
 
 
 export const routes: Routes = [
@@ -22,6 +23,7 @@ export const routes: Routes = [
     { path: 'inicio-sesion', component: InicioSesionComponent },
     { path: 'registro', component: RegistroComponent },
     { path: 'admin', component: AdminComponent },
+    { path: 'compra', component: CompraComponent }, 
     { path: 'admin/productos', redirectTo: 'productos'},
     {
         path: 'ticket/:id',

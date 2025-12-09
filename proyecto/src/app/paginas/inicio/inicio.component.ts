@@ -1,7 +1,7 @@
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Producto } from '../../model/producto.model';
 import { RouterModule } from '@angular/router';
+import { Producto } from '../../model/producto.model';
 import { CarritoService } from '../../servicios/carrito.service';
 import { FavoritosService } from '../../servicios/favoritos.service';
 import { ProductService } from '../../servicios/product.service';
@@ -11,26 +11,83 @@ import { ProductService } from '../../servicios/product.service';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent {
-producto: Producto[] = []; 
-  //usa estas dependencias para llamar a los servicios
-  constructor(private carritoService: CarritoService, private ProductService: ProductService,
-    private favoritosService: FavoritosService
+export class InicioComponent implements OnInit {
+
+  producto: Producto[] = [];
+  cargando = true;
+  error: string | null = null;
+
+  // Variables para el toast (iguales que en productos)
+  mostrarAlerta = false;
+  mensajeAlerta = '';
+
+  constructor(
+    private carritoService: CarritoService,
+    private favoritosService: FavoritosService,
+    private productService: ProductService
   ) { }
 
-  //metodo para agregar un producto 
-  //recibe un producto como parametro, llama al metodo del carritoservice para agregarlo al carrito y lo actualiza
-  agregarAlCarrito(producto: Producto) {
-    this.carritoService.agregarAlCarrito(producto)
+  ngOnInit(): void {
+    this.cargarProductos();
   }
 
-  //llama al metodo del favoritosservice para agregarlo a la lista de favoritos y muestra un alert como confirmación al usuario. 
-  agregarAFavoritos(producto: Producto) {
-    this.favoritosService.agregarFavorito(producto)
-    alert("Producto agregado a favoritos")
+  cargarProductos(): void {
+    this.cargando = true;
+    this.error = null;
+    this.productService.obtenerProductos().subscribe({
+      next: (productos) => {
+        this.producto = productos;
+        this.cargando = false;
+      },
+      error: (err) => {
+        console.error('Error al cargar productos:', err);
+        this.error = 'No se pudieron cargar los productos.';
+        this.cargando = false;
+      }
+    });
   }
 
+  //Método con toast al agregar al carrito
+  agregarAlCarrito(producto: Producto): void {
+    this.carritoService.agregarAlCarrito(producto).subscribe({
+      next: () => {
+        this.mostrarAlerta = true;
+        this.mensajeAlerta = 'Agregado al carrito';
+        setTimeout(() => {
+          this.mostrarAlerta = false;
+        }, 3000);
+      },
+      error: (err) => {
+        console.error('Error al agregar al carrito:', err);
+        this.mostrarAlerta = true;
+        this.mensajeAlerta = 'Error al agregar el producto';
+        setTimeout(() => {
+          this.mostrarAlerta = false;
+        }, 3000);
+      }
+    });
+  }
 
+  // ✨ Método con toast al agregar a favoritos
+  agregarAFavoritos(producto: Producto): void {
+    this.favoritosService.agregarFavorito(producto).subscribe({
+      next: () => {
+        this.mostrarAlerta = true;
+        this.mensajeAlerta = 'Producto agregado a favoritos';
+        setTimeout(() => {
+          this.mostrarAlerta = false;
+        }, 3000);
+      },
+      error: (err) => {
+        console.error('Error al agregar a favoritos:', err);
+        this.mostrarAlerta = true;
+        this.mensajeAlerta = 'Error al agregar a favoritos';
+        setTimeout(() => {
+          this.mostrarAlerta = false;
+        }, 3000);
+      }
+    });
+  }
 }

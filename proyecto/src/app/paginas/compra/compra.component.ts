@@ -18,11 +18,11 @@ export class CompraComponent implements OnInit {
   productos: any[] = [];
 
   // Datos adicionales que el usuario debe completar (pueden usarse más adelante en el futuro).
-  datos = { direccion: '', telefono: '' };
+  datos = { direccion: '', telefono: '', nombreapellido: '', dni: '', email: '' };
 
   // Valores monetarios usados durante el resumen de compra.
   subtotal = 0;
-  envio = 1000; // Costo fijo de envío.
+  envio = 6000; // Costo fijo de envío.
   total = 0;
 
   // Mensajes informativos para el usuario (éxito o error).
@@ -80,7 +80,10 @@ export class CompraComponent implements OnInit {
     // Datos adicionales del comprador (se envían al backend si se usan).
     const data = {
       direccion: this.datos.direccion,
-      telefono: this.datos.telefono
+      telefono: this.datos.telefono,
+      nombreapellido: this.datos.nombreapellido,
+      dni: this.datos.dni,
+      email: this.datos.email
     };
 
     // Marca estado de carga para bloquear UI si fuera necesario.
