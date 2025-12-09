@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../servicios/product.service';
 
+
 @Component({
   selector: 'app-admin',
   standalone: true,
@@ -103,8 +104,8 @@ export class AdminComponent implements OnInit {
         },
         error: err => console.error("Error actualizando producto", err)
       });
-
     } 
+    
     // CREACIÓN
     else {
 

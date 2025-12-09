@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Producto } from '../../model/producto.model';
 import { CarritoService } from '../../servicios/carrito.service';
-import { FavoritosService } from '../../servicios/favoritos.service';
 import { ProductService } from '../../servicios/product.service';
 
 @Component({
@@ -25,7 +24,6 @@ export class InicioComponent implements OnInit {
 
   constructor(
     private carritoService: CarritoService,
-    private favoritosService: FavoritosService,
     private productService: ProductService
   ) { }
 
@@ -70,24 +68,4 @@ export class InicioComponent implements OnInit {
     });
   }
 
-  // ✨ Método con toast al agregar a favoritos
-  agregarAFavoritos(producto: Producto): void {
-    this.favoritosService.agregarFavorito(producto).subscribe({
-      next: () => {
-        this.mostrarAlerta = true;
-        this.mensajeAlerta = 'Producto agregado a favoritos';
-        setTimeout(() => {
-          this.mostrarAlerta = false;
-        }, 3000);
-      },
-      error: (err) => {
-        console.error('Error al agregar a favoritos:', err);
-        this.mostrarAlerta = true;
-        this.mensajeAlerta = 'Error al agregar a favoritos';
-        setTimeout(() => {
-          this.mostrarAlerta = false;
-        }, 3000);
-      }
-    });
-  }
 }
